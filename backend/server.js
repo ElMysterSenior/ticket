@@ -46,7 +46,7 @@ app.post('/authenticate', async (req, res) => {
 
         if (rows.length > 0) {
             const user = rows[0];
-            res.json({ id: user.id, username: user.username, role: user.role, token: '12345' });
+            res.json({ id: user.id, username: user.username, role: user.role, token: "12" });
             console.log(rows);
         } else {
             res.status(401).json({ message: 'Username or password is incorrect' });

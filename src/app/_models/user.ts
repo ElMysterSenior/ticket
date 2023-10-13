@@ -2,7 +2,6 @@
 
 export interface User {
     id: number;
-    username: string;
+    user: string;
     role: Role;
-    token?: string;
 }

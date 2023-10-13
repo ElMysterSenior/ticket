@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigateByUrl(returnUrl);
                 },
                 error: error => {
-                    this.error = error;
+                    this.error = 'Usuario y/o contraseña incorrectos'; // Establece el mensaje de error aquí
                     this.loading = false;
                 }
             });
