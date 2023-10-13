@@ -1,0 +1,101 @@
+<div class="header">
+    <h1>Formulario de Trámite</h1>
+  </div>
+  
+  <div class="container">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombreCompleto">Nombre completo de quien realizará el trámite:</label>
+        <input type="text" id="nombreCompleto" formControlName="nombreCompleto" class="form-control">
+        <div *ngIf="formulario.get('nombreCompleto')?.hasError('required') && (formulario.get('nombreCompleto')?.dirty || formulario.get('nombreCompleto')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('nombreCompleto')?.hasError('minlength') && (formulario.get('nombreCompleto')?.dirty || formulario.get('nombreCompleto')?.touched)" class="mensaje-error">El nombre debe tener al menos 3 letras.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="curp">CURP:</label>
+        <input type="text" id="curp" formControlName="curp" class="form-control">
+        <div *ngIf="formulario.get('curp')?.hasError('required') && (formulario.get('curp')?.dirty || formulario.get('curp')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('curp')?.hasError('validarCURP') && (formulario.get('curp')?.dirty || formulario.get('curp')?.touched)" class="mensaje-error">Debe tener el formato de la CURP mexicana.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre" class="form-control">
+        <div *ngIf="formulario.get('nombre')?.hasError('required') && (formulario.get('nombre')?.dirty || formulario.get('nombre')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('nombre')?.hasError('minlength') && (formulario.get('nombre')?.dirty || formulario.get('nombre')?.touched)" class="mensaje-error">El nombre debe tener al menos 3 letras.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="paterno">Apellido paterno:</label>
+        <input type="text" id="paterno" formControlName="paterno" class="form-control">
+        <div *ngIf="formulario.get('paterno')?.hasError('required') && (formulario.get('paterno')?.dirty || formulario.get('paterno')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('paterno')?.hasError('minlength') && (formulario.get('paterno')?.dirty || formulario.get('paterno')?.touched)" class="mensaje-error">El apellido paterno debe tener al menos 3 letras.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="materno">Apellido materno:</label>
+        <input type="text" id="materno" formControlName="materno" class="form-control">
+        <div *ngIf="formulario.get('materno')?.hasError('required') && (formulario.get('materno')?.dirty || formulario.get('materno')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('materno')?.hasError('minlength') && (formulario.get('materno')?.dirty || formulario.get('materno')?.touched)" class="mensaje-error">El apellido materno debe tener al menos 3 letras.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="telefono">Telefono:</label>
+        <input type="text" id="telefono" formControlName="telefono" class="form-control">
+        <div *ngIf="formulario.get('telefono')?.hasError('required') && (formulario.get('telefono')?.dirty || formulario.get('telefono')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('telefono')?.hasError('minlength') && (formulario.get('telefono')?.dirty || formulario.get('telefono')?.touched)" class="mensaje-error">El teléfono debe tener al menos 10 dígitos.</div>
+    </div>
+    
+    <div class="form-group">
+        <label for="celular">Celular:</label>
+        <input type="text" id="celular" formControlName="celular" class="form-control">
+        <div *ngIf="formulario.get('celular')?.hasError('required') && (formulario.get('celular')?.dirty || formulario.get('celular')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('celular')?.hasError('minlength') && (formulario.get('celular')?.dirty || formulario.get('celular')?.touched)" class="mensaje-error">El celular debe tener al menos 10 dígitos.</div>
+    </div>
+    
+    <div class="form-group">
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" formControlName="correo" class="form-control">
+        <div *ngIf="formulario.get('correo')?.hasError('required') && (formulario.get('correo')?.dirty || formulario.get('correo')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+        <div *ngIf="formulario.get('correo')?.hasError('pattern') && (formulario.get('correo')?.dirty || formulario.get('correo')?.touched)" class="mensaje-error">Debe ser un correo válido.</div>
+    </div>
+      <div class="form-group">
+        <label for="nivel">Nivel al que el alumno desea ingresar o que ya cursa:</label>
+        <select id="nivel" formControlName="nivel" class="form-control">
+          <option value="0">Seleccionar</option>
+          <option value="primaria">Primaria</option>
+          <option value="secundaria">Secundaria</option>
+          <option value="bachillerato">Bachillerato</option>
+          <option value="universidad">Universidad</option>
+        </select>
+        <div *ngIf="formulario.get('nivel')?.hasError('required') && (formulario.get('nivel')?.dirty || formulario.get('nivel')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="municipio">Municipio:</label>
+        <select id="municipio" formControlName="municipio" class="form-control">
+          <option value="0">Seleccionar</option>
+          <option value="municipio1">Municipio 1</option>
+          <option value="municipio2">Municipio 2</option>
+          <option value="municipio3">Municipio 3</option>
+          <!-- Agrega más opciones de municipios según tu necesidad -->
+        </select>
+        <div *ngIf="formulario.get('municipio')?.hasError('required') && (formulario.get('municipio')?.dirty || formulario.get('municipio')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="tema">Seleccione tema a tratar:</label>
+        <select id="tema" formControlName="tema" class="form-control">
+          <option value="0">Seleccionar</option>
+          <option value="inscripcion">Inscripción</option>
+          <option value="certificados">Certificados</option>
+          <option value="asesoria">Asesoría</option>
+          <option value="otro">Otro</option>
+          <!-- Agrega más opciones de temas según tu necesidad -->
+        </select>
+        <div *ngIf="formulario.get('tema')?.hasError('required') && (formulario.get('tema')?.dirty || formulario.get('tema')?.touched)" class="mensaje-error">Este campo es obligatorio.</div>
+      </div>
+  
+      <input type="submit" class="btn-primary" value="Generar turno">
+    </form>
+  </div>
